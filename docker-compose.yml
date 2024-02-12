@@ -1,0 +1,26 @@
+version: '3.8'   #Created by Shyam @12/02/2024
+
+services:
+  web:
+    build:
+      context: ./vue-app          # Path to the directory containing the Dockerfile for the frontend service
+      dockerfile: Dockerfile      # Name of the Dockerfile for the frontend service
+    ports:
+      - "5000:5000"                # Port mapping for the frontend service
+    volumes:
+      - ./vue-app:/app            # Mount the frontend directory on the host to /app directory in the container
+    environment:
+      - NODE_ENV=production        # Set Node.js environment to production for frontend service
+    restart: always                # Always restart the frontend service if it stops unexpectedly
+
+  api:
+    build:
+      context: ./nitro-app               # Path to the directory containing the Dockerfile for the API service
+      dockerfile: Dockerfile      # Name of the Dockerfile for the API service
+    ports:
+      - "3000:3000"                # Port mapping for the API service
+    volumes:
+      - ./nitro-app:/app                 # Mount the api directory on the host to /app directory in the container
+    environment:
+      - NODE_ENV=production        # Set Node.js environment to production for API service also db uri if exist//
+    restart: always                # Always restart the API service if it stops unexpectedly
