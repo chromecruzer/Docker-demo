@@ -1,2 +1,2 @@
 # Docker-demo
-This is only educational demo purpose only Creator Shyam. M @12-feb-2024
+This is only for educational demo purpose only Creator Shyam. M @12-feb-2024
