@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  alpine_builder:
+    build:
+      context: .
+      dockerfile: Dockerfile.alpine
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./vue-app:/app/vue-app
+      - ./nitro-app:/app/nitro-app
+
+  web:
+    build:
+      context: ./vue-app
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./vue-app:/app
+    depends_on:
+      - alpine_builder
+    restart: always
+
+  api:
+    build:
+      context: ./nitro-app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./nitro-app:/app
+    depends_on:
+      - alpine_builder
+    restart: always
