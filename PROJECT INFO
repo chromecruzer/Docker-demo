@@ -9,4 +9,13 @@ vue-app -> CLIENT
 .... Lets spin up the server 
 1. docker-compose -p docker-demo build --no-cache 
 2. docker-compose up
+
+
+// To start individually 
+1. docker start docker-demo-api-1 docker-demo-web-1
+
+// To stop individually
+1. docker stop docker-demo-api-1 docker-demo-web-1
+
+
 3. docker-compose exec api cat /etc/os-release  ||  docker-compose exec web cat /etc/os-release
