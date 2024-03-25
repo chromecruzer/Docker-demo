@@ -10,6 +10,13 @@ vue-app -> CLIENT
 1. docker-compose -p docker-demo build --no-cache 
 2. docker-compose up
 
+// Use with caution because this will remove the running containers 
+1. docker-compose down
+
+// Instead Run this..
+1. docker-compose start
+2. docker-compose stop
+
 
 // To start individually 
 1. docker start docker-demo-api-1 docker-demo-web-1
