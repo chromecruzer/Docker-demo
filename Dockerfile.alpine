@@ -1,0 +1,12 @@
+# Use Alpine Linux base image
+FROM alpine:latest
+
+# Install dependencies
+RUN apk update && \
+    apk add --no-cache nodejs npm git
+
+# Set the working directory
+WORKDIR /app
+
+# Display Node.js and Git versions
+RUN node -v && git --version
