@@ -4,3 +4,8 @@ Modules:
 
 nitro-app -> API
 vue-app -> CLIENT 
+
+
+.... Lets spin up the server 
+1. docker-compose -p docker-demo build --no-cache 
+2. docker-compose up
